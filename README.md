@@ -4,8 +4,12 @@ Small Node.js app for autocontrolling Wemo Insight Switch devices (yet others no
 ## Install
 
 ```bash
-$ npm install wemo-insight-auto
+$ npm install -g wemo-insight-auto
 ```
 
 ## Usage
+
+```bash
+$ wemo-insight-auto
+```
 
