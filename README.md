@@ -1,5 +1,7 @@
 # Wemo Insight Auto
-Small Node.js app for autocontrolling Wemo Insight Switch devices (yet others not tested). Subscribes an event to get live updates from a group of devices defined as controllers. Binary state changes on controllers _(enter standby, left standby)_ switches on/off another group of controlled devices.
+Small Node.js app for autocontrolling Wemo Insight Switch devices. Subscribes an event to get live updates from a group of Wemo devices defined as controllers. Binary state changes on controllers _(enter standby, left standby)_ switches on/off another group of controlled Wemo devices.
+
+_E.g. when the microwave turns on, turn off the AC. And, when the microwave turns back off, turn on the AC_
 
 ## Install
 
