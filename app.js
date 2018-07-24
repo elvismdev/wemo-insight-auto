@@ -27,7 +27,7 @@ function findAndSetDevices(devType, client) {
 	let property = 'dev'+jsUcfirst(devType);
 	config[property].forEach((dev, index) => {
 		// Check if device serial number ends with
-		if (client.device.serialNumber.endsWith(dev.sn_id)) {
+		if (client.device.serialNumber.endsWith(dev.wid)) {
 			console.log(client.device.friendlyName+' is a '+devType+' device.');
 			config[property][index].client = client;
 		}

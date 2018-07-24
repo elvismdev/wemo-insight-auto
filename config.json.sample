@@ -1,12 +1,15 @@
 {
 	"devControlled": [
 		{
-			"sn_id": 762
+			"wid": 762
 		}
 	],
 	"devController": [
 		{
-			"sn_id": 766
+			"wid": 766
+		},
+		{
+			"wid": 708
 		}
 	]
 }
