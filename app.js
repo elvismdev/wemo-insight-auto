@@ -1,6 +1,12 @@
 #!/usr/bin/env node
-
+const pkg = require('./package.json');
 const Wemo = require('wemo-client');
+const program = require('commander');
+
+program
+.version(pkg.version)
+.parse(process.argv);
+
 var config = require('./config.json');
 
 // Set configured devices count.

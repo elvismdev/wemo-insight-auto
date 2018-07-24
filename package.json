@@ -30,6 +30,7 @@
   ],
   "license": "ISC",
   "dependencies": {
+    "commander": "^2.16.0",
     "npm": "^6.2.0",
     "wemo-client": "^0.15.0"
   }
