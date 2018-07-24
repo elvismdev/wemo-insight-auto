@@ -6,11 +6,28 @@
 	"scripts": {
 		"start": "node app"
 	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/elvismdev/wemo-insight-auto.git"
+	},
+	"bin": {
+    		"wemo-insight-auto": "./app.js"
+  	},
 	"author": {
 		"name": "Elvis Mørales",
 		"email": "yo@elvismdev.io",
 		"url": "https://elvismdev.io"
 	},
+	"keywords": [
+		"nodejs",
+		"wemo-insight",
+		"javascript",
+		"smartthings",
+		"diy",
+		"smarthome",
+		"mining-rigs",
+		"appliance-monitor"
+	],
 	"license": "ISC",
 	"dependencies": {
 		"npm": "^6.2.0",
