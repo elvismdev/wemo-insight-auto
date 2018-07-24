@@ -3,6 +3,8 @@ Small Node.js app for autocontrolling Wemo Insight Switch devices (yet others no
 
 ## Install
 
+[`nodejs`](https://nodejs.org) and [`npm`](https://npmjs.com) are required to install and use this service.
+
 ```bash
 $ npm install -g wemo-insight-auto
 ```
