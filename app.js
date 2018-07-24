@@ -74,8 +74,6 @@ function app() {
 
 	// Discover all the WeMo devices.
 	wemo.discover((err, deviceInfo) => {
-		
-
 		// Check if we have more than two devices to work with.
 		if (devCount >= 2) {
 			// Print in console what we found.
