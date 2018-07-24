@@ -11,8 +11,8 @@
 		"url": "https://github.com/elvismdev/wemo-insight-auto.git"
 	},
 	"bin": {
-    		"wemo-insight-auto": "./app.js"
-  	},
+		"wemo-insight-auto": "./app.js"
+	},
 	"author": {
 		"name": "Elvis Mørales",
 		"email": "yo@elvismdev.io",
