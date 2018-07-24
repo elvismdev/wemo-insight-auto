@@ -70,10 +70,12 @@ function confControllerDevs(controllers) {
 function app() {
 	const wemo = new Wemo();
 
+	console.log('Discovering Wemo devices via UPnP...');
+
 	// Discover all the WeMo devices.
 	wemo.discover((err, deviceInfo) => {
-		console.log('Discovering Wemo devices via UPnP...');
 		
+
 		// Check if we have more than two devices to work with.
 		if (devCount >= 2) {
 			// Print in console what we found.
