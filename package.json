@@ -6,6 +6,10 @@
 	"scripts": {
 		"start": "node app"
 	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/elvismdev/wemo-insight-auto.git"
+	},
 	"author": {
 		"name": "Elvis Mørales",
 		"email": "yo@elvismdev.io",
