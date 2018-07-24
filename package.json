@@ -1,36 +1,36 @@
 {
-	"name": "wemo-insight-auto",
-	"version": "1.0.0",
-	"description": "Small NodeJS script to monitor power usage from appliances attached to Wemo Insight Switch devices and automatically toggle them On/Off.",
-	"main": "app.js",
-	"scripts": {
-		"start": "node app"
-	},
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/elvismdev/wemo-insight-auto.git"
-	},
-	"bin": {
-		"wemo-insight-auto": "./app.js"
-	},
-	"author": {
-		"name": "Elvis Mørales",
-		"email": "yo@elvismdev.io",
-		"url": "https://elvismdev.io"
-	},
-	"keywords": [
-		"nodejs",
-		"wemo-insight",
-		"javascript",
-		"smartthings",
-		"diy",
-		"smarthome",
-		"mining-rigs",
-		"appliance-monitor"
-	],
-	"license": "ISC",
-	"dependencies": {
-		"npm": "^6.2.0",
-		"wemo-client": "^0.15.0"
-	}
+  "name": "wemo-insight-auto",
+  "version": "1.0.1",
+  "description": "Small NodeJS script to monitor power usage from appliances attached to Wemo Insight Switch devices and automatically toggle them On/Off.",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/elvismdev/wemo-insight-auto.git"
+  },
+  "bin": {
+    "wemo-insight-auto": "./app.js"
+  },
+  "author": {
+    "name": "Elvis Mørales",
+    "email": "yo@elvismdev.io",
+    "url": "https://elvismdev.io"
+  },
+  "keywords": [
+    "nodejs",
+    "wemo-insight",
+    "javascript",
+    "smartthings",
+    "diy",
+    "smarthome",
+    "mining-rigs",
+    "appliance-monitor"
+  ],
+  "license": "ISC",
+  "dependencies": {
+    "npm": "^6.2.0",
+    "wemo-client": "^0.15.0"
+  }
 }
