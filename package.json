@@ -15,6 +15,16 @@
 		"email": "yo@elvismdev.io",
 		"url": "https://elvismdev.io"
 	},
+	"keywords": [
+		"nodejs",
+		"wemo-insight",
+		"javascript",
+		"smartthings",
+		"diy",
+		"smarthome",
+		"mining-rigs",
+		"appliance-monitor",
+	],
 	"license": "ISC",
 	"dependencies": {
 		"npm": "^6.2.0",
