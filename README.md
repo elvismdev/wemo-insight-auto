@@ -12,6 +12,6 @@ $ npm install -g wemo-insight-auto
 ## Usage
 
 ```bash
-$ wemo-insight-auto
+$ wemo-insight-auto -c /path/to/config.json
 ```
 
