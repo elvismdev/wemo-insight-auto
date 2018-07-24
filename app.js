@@ -1,5 +1,7 @@
-const Wemo 		= require('wemo-client');
-var config 		= require('./config.json');
+#!/usr/bin/env node
+
+const Wemo = require('wemo-client');
+var config = require('./config.json');
 
 // Set configured devices count.
 const devCount = config.devControlled.length + config.devController.length;
