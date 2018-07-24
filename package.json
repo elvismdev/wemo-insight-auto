@@ -23,7 +23,7 @@
 		"diy",
 		"smarthome",
 		"mining-rigs",
-		"appliance-monitor",
+		"appliance-monitor"
 	],
 	"license": "ISC",
 	"dependencies": {
