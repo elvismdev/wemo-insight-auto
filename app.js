@@ -3,11 +3,14 @@ const pkg = require('./package.json');
 const Wemo = require('wemo-client');
 const program = require('commander');
 
+// Command line options.
 program
 .version(pkg.version)
+.option('-c, --config <path>', 'Path to the configuration file.', './config.json')
 .parse(process.argv);
 
-var config = require('./config.json');
+// Load config file.
+const config = require(program.config);
 
 // Set configured devices count.
 const devCount = config.devControlled.length + config.devController.length;
