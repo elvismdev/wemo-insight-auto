@@ -17,6 +17,19 @@ const devCount = config.devControlled.length + config.devController.length;
 // Set a counter to find out when we are done discovering all devices. 
 var loopCounter = 0;
 
+// Debug to console with date.
+const DEBUG = (function(){
+	var timestamp = function(){};
+	timestamp.toString = function(){
+		let options = { weekday: "short", month: "short", day: "2-digit", hour12: false, year: "numeric" };
+		return "[" + (new Date).toLocaleTimeString('en-US', options).replace(/,/g, '') + "]";
+	};
+
+	return {
+		log: console.log.bind(console, '%s', timestamp)
+	}
+})();
+
 // Uppercase first letter of string.
 function jsUcfirst(string) {
 	return string.charAt(0).toUpperCase() + string.slice(1);
@@ -28,7 +41,7 @@ function findAndSetDevices(devType, client) {
 	config[property].forEach((dev, index) => {
 		// Check if device serial number ends with
 		if (client.device.serialNumber.endsWith(dev.wid)) {
-			console.log(client.device.friendlyName+' is a '+devType+' device.');
+			DEBUG.log(client.device.friendlyName+' is a '+devType+' device.');
 			config[property][index].client = client;
 		}
 	});
@@ -43,7 +56,7 @@ function handleControlledDevs(toggle, referrerDev) {
 		} else if (toggle == 'on') {
 			dev.client.setBinaryState(1);
 		}
-		console.log('%s turned %s triggered by %s.', deviceName, toggle, referrerDev);
+		DEBUG.log(deviceName + ' turned ' + toggle + ' triggered by ' + referrerDev + '.');
 	});
 }
 
@@ -56,19 +69,19 @@ function confControllerDevs(controllers) {
 
 			// Check if attached appliance was turned on.
 			if (value == 1) {
-				console.log('%s left standby mode.', deviceName);
+				DEBUG.log(deviceName + ' left standby mode.');
 				handleControlledDevs('off', deviceName);
 			}
 
 			// Check if attached appliance was turned off.
 			if (value == 8) {
-				console.log('%s entered standby mode.', deviceName);
+				DEBUG.log(deviceName + ' entered standby mode.');
 				handleControlledDevs('on', deviceName);
 			}
 
 			// Check if WeMo device switch was turned off.
 			if (value == 0) {
-				console.log('WeMo Insight Switch for %s was turned off.', deviceName);
+				DEBUG.log('WeMo Insight Switch for ' + deviceName + ' was turned off.');
 				handleControlledDevs('on', deviceName);
 			}
 		});
@@ -79,14 +92,14 @@ function confControllerDevs(controllers) {
 function app() {
 	const wemo = new Wemo();
 
-	console.log('Discovering Wemo devices via UPnP...');
+	DEBUG.log('Discovering Wemo devices via UPnP...');
 
 	// Discover all the WeMo devices.
 	wemo.discover((err, deviceInfo) => {
 		// Check if we have more than two devices to work with.
 		if (devCount >= 2) {
 			// Print in console what we found.
-			console.log('Wemo Device Found: %j', deviceInfo.friendlyName);
+			DEBUG.log('Wemo Device Found: ' + deviceInfo.friendlyName);
 
 			// Get the client for the found device
 			let client = wemo.client(deviceInfo);
@@ -97,7 +110,7 @@ function app() {
 
 			// Listen to error events (e.g. device went offline),
 			client.on('error', (err) => {
-				console.log('Error: %s', err.code);
+				DEBUG.log('Error: ' + err.code);
 			});
 
 			// If we found all the configured WeMo devices.
@@ -108,7 +121,7 @@ function app() {
 			// Increase the counter.
 			loopCounter++;
 		} else {
-			console.log('Script requires at least 2 WeMo Insight Switch devices configured.');
+			DEBUG.log('Script requires at least 2 WeMo Insight Switch devices configured.');
 			process.exit();
 		}
 	});
