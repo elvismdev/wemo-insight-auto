@@ -9,12 +9,18 @@ const wia = new (forever.Monitor)(__dirname + '/app.js');
 const errCode = 'EHOSTUNREACH';
 
 wia.on('start', () => {
-	DEBUG.log(pkg.name + ' has started with forever-monitor.');
+	DEBUG.log(pkg.name + ' has started in forever-monitor mode.');
 });
 
 wia.on('restart', () => {
 	DEBUG.log(pkg.name + ' has restarted.');
 	DEBUG.log('Restart count: ' + wia.times);
+});
+
+wia.on('stderr', () => {
+	// Stop monitoring if there was a fatal error with app process.
+	DEBUG.log(pkg.name + ' had a fatal error during execution. Stop monitoring now.');
+	wia.stop();
 });
 
 // Monitor stdout to look when error happens.
