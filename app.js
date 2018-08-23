@@ -1,5 +1,6 @@
 #!/usr/bin/env node
-const pkg = require('./package.json');
+const pkg = require('./package');
+const DEBUG = require('./debug');
 const Wemo = require('wemo-client');
 const program = require('commander');
 
@@ -16,19 +17,6 @@ const config = require(program.config);
 const devCount = config.devControlled.length + config.devController.length;
 // Set a counter to find out when we are done discovering all devices. 
 var loopCounter = 0;
-
-// Debug to console with date.
-const DEBUG = (function(){
-	var timestamp = function(){};
-	timestamp.toString = function(){
-		let options = { weekday: "short", month: "short", day: "2-digit", hour12: false, year: "numeric" };
-		return "[" + (new Date).toLocaleTimeString('en-US', options).replace(/,/g, '') + "]";
-	};
-
-	return {
-		log: console.log.bind(console, '%s', timestamp)
-	}
-})();
 
 // Uppercase first letter of string.
 function jsUcfirst(string) {

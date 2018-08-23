@@ -1,13 +1,21 @@
-var forever = require('forever-monitor');
+#!/usr/bin/env node
+const pkg = require('./package');
+const DEBUG = require('./debug');
+const forever = require('forever-monitor');
 
-var child = new (forever.Monitor)('app.js', {
-	max: 3,
-	silent: true,
-	args: []
+const wia = new (forever.Monitor)('app.js');
+
+// wia.on('restart', function () {
+// 	console.log('app.js has restarted');
+// 	wia.restart();
+// });
+
+wia.on('start', function () {
+	DEBUG.log(pkg.name + ' has started.');
 });
 
-child.on('exit', function () {
-	console.log('app.js has exited after 3 restarts');
-});
+// wia.on('exit', function () {
+// 	console.log('app.js has exited after 3 restarts');
+// });
 
-child.start();
+wia.start();
