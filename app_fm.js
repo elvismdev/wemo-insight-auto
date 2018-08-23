@@ -3,10 +3,20 @@ const pkg = require('./package');
 const DEBUG = require('./debug');
 const forever = require('forever-monitor');
 
-const wia = new (forever.Monitor)(__dirname + '/app.js');
-
 // Error code we look for to restart the app.
 const errCode = 'EHOSTUNREACH';
+
+// Create an options object with empty args property.
+var options = {
+	args: []
+};
+// Pass app options for config file if we have them in our line command.
+if (process.argv[2] && process.argv[3]) {
+	options.args.push(process.argv[2], process.argv[3]);
+}
+
+// Initialize app monitoring.
+const wia = new (forever.Monitor)(__dirname + '/app.js', options);
 
 wia.on('start', () => {
 	DEBUG.log(pkg.name + ' has started in forever-monitor mode.');
