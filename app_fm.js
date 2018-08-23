@@ -3,7 +3,7 @@ const pkg = require('./package');
 const DEBUG = require('./debug');
 const forever = require('forever-monitor');
 
-const wia = new (forever.Monitor)('app.js');
+const wia = new (forever.Monitor)('./app.js');
 
 // Error code we look for to restart the app.
 const errCode = 'EHOSTUNREACH';
