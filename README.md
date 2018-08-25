@@ -55,3 +55,10 @@ __Wemo Device ID__
 
 The `"wid"` key stands for Wemo ID. The value for this key are the last three alphanumeric characters of the Wemo ID, (_e.g. WeMo.Insight.xxx_). This can be found at the back of the Wemo unit, or from the app at the edit device screen.
 
+### forever-monitor mode
+
+It might happen the main app script to get stuck on error code `EHOSTUNREACH` after several hours running (maybe due to poor network performace). To get around this the app can also be run in _forever-monitor mode_. The app will restart itself everytime an instance of this error occurs.
+
+```bash
+$ wemo-insight-auto-forever -c /path/to/config.json
+```
